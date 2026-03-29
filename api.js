@@ -1,7 +1,7 @@
 // api.js
 
 // Look! No API key here anymore! It is completely secure.
-const BACKEND_URL = "http://localhost:3000/api/chat"; 
+const BACKEND_URL = "/api/chat"; 
 
 export const chatHistory = [];
 
