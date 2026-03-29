@@ -116,6 +116,36 @@ body.show-chatbot .chatbot-popup {
     gap:10px;
     align-items: center;
 }
+
+/* Model Selector Dropdown Styling */
+.chat-header .model-dropdown {
+    background-color: #25272a; /* Matches your chat-footer and user messages */
+    color: #e0e0e0;
+    border: 1px solid #4b4b4b;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    margin: 0 10px; /* Gives it a little breathing room */
+}
+
+/* Hover and Focus effects to match your brand colors */
+.chat-header .model-dropdown:hover,
+.chat-header .model-dropdown:focus {
+    border-color: #5350C4; 
+    box-shadow: 0 0 5px rgba(83, 80, 196, 0.5);
+}
+
+/* Style the dropdown menu items */
+.chat-header .model-dropdown option {
+    background-color: #17191c; 
+    color: #fff;
+    padding: 10px;
+}
+
 .header-info .chatbot-logo{
     height: 35px;
     width: 35px;
@@ -126,20 +156,42 @@ body.show-chatbot .chatbot-popup {
     border-radius: 50%;
 
 }
-.header-info .logo-text{
-    background: linear-gradient(90deg, #5350C4, white);  /* your gradient */
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.31rem;
+.header-info .logo-text {
+    /* 1. Fluid Typography: min-size, preferred-size (scales with screen), max-size */
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
     font-weight: 600;
-}
-.header-info .logo-text{
-    background: linear-gradient(270deg, white, #5350C4, white);  /* your gradient */
-    background-size: 600% 600%;
+
+    /* 2. Consolidated Gradient Setup */
+    background: linear-gradient(270deg, #ffffff, #5350C4, #ffffff); 
+    background-size: 400% 400%; /* Slightly smaller for smoother rendering on mobile */
+    
+    /* 3. Text Clipping */
+    -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback for older browsers */
+
+    /* 4. Animation */
     animation: moveGradient 6s ease infinite;
 }
+
+/* 5. Pro-Tip: Accessibility for Animations */
+@media (prefers-reduced-motion: reduce) {
+    .header-info .logo-text {
+        animation: none; /* Stops the animation for users sensitive to motion */
+        background-position: center;
+    }
+}
+
+@media(max-width:520px){
+    /* ... your existing mobile rules stay here ... */
+
+    /* Hide the logo text on mobile */
+    .header-info .logo-text {
+        display: none;
+    }
+}
+
 .chat-header #close-chatbot{
     border:none;
     color: #fff;

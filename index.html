@@ -24,6 +24,13 @@
                 </svg>
                 <h2 class="logo-text">Grand AI</h2>
             </div>
+
+            <select id="model-selector" class="model-dropdown">
+                <option value="gemini-2.5-flash" selected>Gemini 2.5 Flash (Default)</option>
+                <option value="gemini-2.0-flash">Gemini 2.0 Flash (Fast)</option>
+                <option value="gemini-2.5-pro">Gemini 2.5 Pro (Smart/Slow)</option>
+            </select>
+
             <button  id="close-chatbot"class="material-symbols-rounded">keyboard_arrow_down</button>
         </div>
         <!--ChatBot Body-->
@@ -58,6 +65,6 @@
     <!-- Linking Emoji Mart script for emoji picker -->
     <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
     <!-- Linking custom script -->
-    <script src="script.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
