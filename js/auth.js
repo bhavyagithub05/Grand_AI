@@ -62,7 +62,7 @@ export const initAuth = () => {
 
         try {
             // Determine the endpoint based on the current mode
-            const endpoint = isLoginMode ? 'http://localhost:3000/api/auth/login' : 'http://localhost:3000/api/auth/signup';
+            const endpoint = isLoginMode ? '/api/auth/login' : '/api/auth/signup';
 
             // If Signup, check passwords first
             if (!isLoginMode) {
