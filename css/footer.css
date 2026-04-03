@@ -1,0 +1,393 @@
+/* =========================================
+   FOOTER & CONTROLS (footer.css) - MASTER COPY
+   ========================================= */
+
+
+/* --- 1. THE FLOATING PILL CONTAINER --- */
+.chat-footer {
+    position: absolute;
+    bottom: 20px; 
+    left: 0;
+    right: 0;
+    margin: 0 auto; 
+    width: calc(100% - 44px); 
+    background: transparent; 
+    padding: 0;
+    z-index: 10; 
+}
+
+/* --- 2. THE STACKED CHAT FORM --- */
+.chat-footer .chat-form {
+    display: flex;
+    flex-direction: column; 
+    background: #25272a;
+    border-radius: 24px;
+    padding: 16px 16px 12px 16px; 
+    outline: none;
+    box-shadow: 0 0 5px white, 0 0 5px #6F6BC2;
+}
+
+.chat-footer .chat-form:focus-within {
+    outline: 1px solid #a4a3b6;
+}
+
+/* --- 3. THE TEXT INPUT --- */
+.chat-form .message-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent; 
+    color: rgb(209, 208, 208);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    resize: none;
+    min-height: 40px; 
+    padding: 8px 0;   
+    max-height: 150px; 
+    scrollbar-width: thin;
+    scrollbar-color: #7b7b7b transparent;
+}
+
+.chat-form .message-input:hover {
+    scrollbar-color: #4e4d4d transparent;
+}
+
+/* --- 4. THE BOTTOM TOOL ROW --- */
+.chat-form .chat-controls {
+    display: flex;
+    width: 100%; 
+    align-items: center;
+    gap: 8px; 
+}
+
+.chat-form .chat-controls button {
+    height: 35px;
+    width: 35px;
+    border: none;
+    font-size: 1.15rem;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border-radius: 50%;
+    transition: 0.2s ease;
+}
+
+.chat-form .chat-controls button:hover {
+    background: #3a3a3a;
+}
+
+/* Pushes the Model Selector, Mic, and Send to the right! */
+.chat-form .chat-controls .custom-model-selector {
+    margin-left: auto; 
+}
+
+.chat-form .chat-controls #send-message {
+    color: black;
+    display: none;
+    background: white;
+    margin-left: 0; 
+}
+
+.chat-form .message-input:valid ~ .chat-controls #send-message {
+    display: block;
+}
+
+.chat-form .chat-controls #send-message:hover {
+    background: rgb(166, 166, 166);
+}
+
+.chat-form .chat-controls #mic-btn {
+    margin-left: 0; 
+}
+
+/* --- 5. TOOLS "+" MENU --- */
+.tools-selector {
+    position: relative;
+}
+
+.tools-menu {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 0;
+    background-color: #1e1f22;
+    border: 1px solid #333;
+    border-radius: 12px;
+    width: 180px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.tools-menu.hidden {
+    display: none;
+}
+
+.tools-menu button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 10px;
+    width: 100% !important; 
+    height: 40px !important;
+    padding: 8px 12px;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    color: #e0e0e0 !important;
+    background: transparent !important;
+}
+
+.tools-menu button:hover {
+    background-color: #2a2c30 !important;
+}
+
+.tools-menu button span {
+    font-size: 1.2rem;
+    color: #a4a3b6;
+}
+
+/* --- 6. CUSTOM MODEL SELECTOR --- */
+.custom-model-selector {
+    position: relative; 
+    width: max-content;
+}
+
+.model-toggler {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    color: #a4a3b6;
+    border: 1px solid #4b4b4b;
+    padding: 6px 8px;
+    border-radius: 15px !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: max-content !important; 
+    white-space: nowrap; /* Stops text from breaking to two lines */
+    font-weight:lighter; 
+    font-size: 0.55rem;
+}
+
+.model-toggler #current-model-name {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.model-toggler:hover {
+    color: #8581fb !important; /* Brightens the text so it still feels interactive */
+    border-color: #8b8d91 !important;
+}
+
+.model-toggler span.material-symbols-rounded {
+    font-size: 1.1rem;
+}
+
+.model-menu {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    right: 0; /* Keeps it inside the box! */
+    background-color: #1e1f22; 
+    border: 1px solid #333;
+    border-radius: 12px;
+    width: 270px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.model-menu.hidden {
+    display: none;
+}
+
+.model-menu-header {
+    color: #e0e0e0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 12px 10px;
+    margin-bottom: 4px;
+}
+
+.model-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.model-option:hover {
+    background-color: #2a2c30;
+}
+
+.model-option .model-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.model-option .model-title {
+    color: #e0e0e0;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.model-option .model-desc {
+    color: #8b8d91;
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+.model-option .check-icon {
+    color: #8581fb; 
+    font-size: 1.3rem;
+    opacity: 0; 
+}
+
+.model-option.selected {
+    background-color: rgba(83, 80, 196, 0.1); 
+}
+
+.model-option.selected .check-icon {
+    opacity: 1; 
+}
+
+/* --- 7. FILE UPLOAD --- */
+.chat-form .file-upload-wrapper {
+    height: 35px;
+    width: 35px;
+    position: relative;
+}
+.chat-form .file-upload-wrapper :where(img, button) {
+    position: absolute;
+}
+.chat-form .file-upload-wrapper img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.chat-form .file-upload-wrapper #file-cancel {
+    color: #ff0000;
+    background: #fff;
+}
+.chat-form .file-upload-wrapper :where(img, #file-cancel),
+.chat-form .file-upload-wrapper.file-uploaded #file-upload {
+    display: none;
+}
+.chat-form .file-upload-wrapper.file-uploaded img,
+.chat-form .file-upload-wrapper.file-uploaded:hover #file-cancel {
+    display: block;
+}
+
+/* --- 8. EMOJI PICKER --- */
+em-emoji-picker {
+    position: absolute;
+    left: 50%;
+    top: -350px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    visibility: hidden;
+    background-color: black;
+    transform: translateX(-50%);
+}
+body.show-emoji-picker em-emoji-picker {
+    visibility: visible;
+}
+
+/* --- 9. CUSTOM CONTEXT MENU --- */
+#context-menu {
+    position: absolute;
+    background: #25272a;
+    border: 1px solid #4b4b4b;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+#context-menu.hidden {
+    display: none;
+}
+
+#context-menu button {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+#context-menu button:hover {
+    background: #3a3a3a;
+}
+
+#context-menu button span {
+    font-size: 1.1rem;
+}
+
+/* --- 10. MIC BUTTON --- */
+#mic-btn {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 8px;
+    transition: color 0.2s ease;
+}
+
+#mic-btn:hover {
+    color: #5350C4; 
+}
+
+#mic-btn.recording {
+    color: #ff4c4c; 
+    animation: pulse-mic 1.2s infinite;
+}
+
+@keyframes pulse-mic {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* =========================================
+   STOP GENERATION BUTTON STYLES
+   ========================================= */
+
+/* Force the send button to stay visible when the 'generating' class is active */
+.chat-form.generating .chat-controls #send-message {
+    display: block;
+    color: #e0e0e0; /* Match the icon colors */
+    background: transparent; /* Remove the white background */
+}
+
+/* Make it glow red when hovered to indicate "Stop" */
+.chat-form.generating .chat-controls #send-message:hover {
+    color: #ff4c4c;
+    background: rgba(255, 76, 76, 0.1);
+}
+
+/* Hide the Mic button while generating so the Stop button takes its exact place */
+.chat-form.generating .chat-controls #mic-btn {
+    display: none;
+}

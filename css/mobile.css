@@ -1,0 +1,106 @@
+/* =========================================
+   MOBILE RESPONSIVENESS (mobile.css) - MASTER COPY
+   ========================================= */
+
+@media(max-width:520px) {
+    /* --- 1. GENERAL MOBILE FIXES --- */
+    #chatbot-toggler {
+        right: 20px;
+        bottom: 20px;
+    }
+    
+    .chatbot-popup {
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .heading h1 {
+        font-size: 35px;
+    }
+    
+    .chatbot-popup .chat-header {
+        padding: 12px 15px;
+    }
+    
+
+    
+    /* --- 2. THE CHAT BODY OVERLAP FIX --- */
+    .chat-body {
+        height: 69%;
+        padding: 25px 20px;
+        margin-bottom: 150px; /* Ensure mobile chat doesn't get covered by the pill */
+    }
+    
+    /* --- 3. FLOATING PILL ADJUSTMENTS --- */
+    .chat-footer {
+        bottom: 15px; /* Slightly closer to the bottom on mobile */
+        width: calc(100% - 30px); /* 15px of empty space on each side */
+        padding: 0;
+    }
+    
+    .chat-footer .chat-form {
+        margin: 0; 
+        border-radius: 20px;
+        padding: 14px 14px 10px 14px; 
+    }
+    
+    /* Stop iOS Zoom & Hide the scrollbar completely */
+    .chat-form .message-input {
+        font-size: 16px; 
+        scrollbar-width: none;
+    }
+
+    .chat-form .message-input::-webkit-scrollbar {
+        display: none; 
+    }
+
+    /* --- 4. CENTER THE POPUP MENUS --- */
+    .model-menu {
+        right: auto;
+        transform: translateX(-50%); /* Puts the menu dead center! */
+        width: 280px; /* Keeps it strictly within mobile screen limits */
+    }
+    .tools-menu {
+        left: auto;
+        transform: translateX(10%);
+        width: 180px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 480px) {
+    .auth-card {
+        width: 90%; /* Gives a nice little margin on the left/right of the phone screen */
+        padding: 30px 20px; /* Reduces the thick padding to save screen real estate */
+        border-radius: 15px; /* Slightly sharper corners look better on small devices */
+        gap: 20px; /* Pulls the elements a tiny bit closer together */
+    }
+
+    .auth-logo span {
+        font-size: 2rem; /* Slightly smaller robot icon */
+    }
+
+    .auth-logo h2 {
+        font-size: 1.5rem; /* Slightly smaller title */
+    }
+
+    #auth-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .input-group input {
+        padding: 12px 12px 12px 40px; /* Slightly thinner input boxes */
+        font-size: 0.9rem;
+    }
+
+    #auth-submit-btn {
+        padding: 12px; /* Match the thinner input boxes */
+        font-size: 0.95rem;
+    }
+}

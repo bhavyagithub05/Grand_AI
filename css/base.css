@@ -1,0 +1,114 @@
+/* =========================================
+   BASE STYLES (base.css)
+   ========================================= */
+
+/* Import google fonts -inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#000000, rgb(26, 24, 24));
+}
+
+/* --- BIG BACKGROUND HEADING --- */
+.heading {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    border: none;
+}
+
+.heading h1 {
+    color: white;
+    text-align: center;
+    font-size: 75px;
+    font-weight: lighter;
+    background: linear-gradient(270deg, white, #5350C4, white);
+    background-size: 600% 600%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: moveGradient 6s ease infinite;
+}
+
+.heading.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- CHATBOT TOGGLE BUTTON (Floating Action Button) --- */
+#chatbot-toggler {
+    position: fixed;
+    bottom: 30px;
+    right: 35px;
+    border: none;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+    transition: all 0.2s ease;
+}
+
+body.show-chatbot #chatbot-toggler {
+    transform: rotate(90deg);
+}
+
+#chatbot-toggler span {
+    color: #5350C4;
+    position: absolute;
+}
+
+body.show-chatbot #chatbot-toggler span:first-child,
+#chatbot-toggler span:last-child {
+    opacity: 0;
+}
+
+body.show-chatbot #chatbot-toggler span:last-child {
+    opacity: 1;
+}
+
+/* --- THE MAIN POPUP CONTAINER --- */
+.chatbot-popup {
+    position: fixed;
+    width: 50%;
+    background: #17191c;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.2);
+    transform-origin: bottom right;
+    pointer-events: none;
+    border-radius: 15px;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
+    transition: all 0.1s ease;
+}
+
+body.show-chatbot .chatbot-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}

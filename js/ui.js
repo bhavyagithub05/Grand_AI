@@ -13,7 +13,9 @@ export const elements = {
     fileUploadBtn: document.querySelector("#file-upload"), // Fixed missing variable
     chatForm: document.querySelector(".chat-form"),
     modelSelector: document.querySelector("#model-selector"),
-    emojiPickerBtn: document.querySelector("#emoji-picker")
+    emojiPickerBtn: document.querySelector("#emoji-picker-btn"),
+    clearChatBtn: document.querySelector("#clear-chat"),
+    micBtn: document.querySelector("#mic-btn"),
 };
 
 export const initialInputHeight = elements.messageInput.scrollHeight;

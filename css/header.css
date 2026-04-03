@@ -1,0 +1,66 @@
+/* =========================================
+   CHAT HEADER STYLES (header.css)
+   ========================================= */
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    background: #17191c;
+    padding: 15px 22px;
+    justify-content: space-between;
+    box-shadow: 0 0 50px black;
+}
+
+.chat-header .header-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.header-info .chatbot-logo {
+    height: 35px;
+    width: 35px;
+    padding: 6px;
+    fill: #5350C4;
+    flex-shrink: 0;
+    background: black;
+    border-radius: 50%;
+}
+
+.header-info .logo-text {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    font-weight: 600;
+    background: linear-gradient(270deg, #ffffff, #5350C4, #ffffff);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+    animation: moveGradient 6s ease infinite; /* Reusing keyframe from base.css */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header-info .logo-text {
+        animation: none;
+        background-position: center;
+    }
+}
+
+/* Close Button */
+.chat-header #close-chatbot {
+    border: none;
+    color: #fff;
+    font-size: 1.9rem;
+    margin-right: -10px;
+    padding-top: 2px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: none;
+    transition: 0.2s ease;
+}
+
+.chat-header #close-chatbot:hover {
+    background: #3a3a3a;
+}

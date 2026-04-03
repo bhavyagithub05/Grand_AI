@@ -5,14 +5,15 @@ const BACKEND_URL = "/api/chat";
 
 export const chatHistory = [];
 
-export const generateBotResponse = async (chatHistoryPayload, modelName) => {
+export const generateBotResponse = async (chatHistoryPayload, modelName, signal) => {
     const requestOptions = {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
             chatHistory: chatHistoryPayload,
             modelName: modelName
-        })
+        }),
+        signal: signal
     };
 
     const response = await fetch(BACKEND_URL, requestOptions);
@@ -25,5 +26,7 @@ export const generateBotResponse = async (chatHistoryPayload, modelName) => {
         throw new Error(data.error?.message || `HTTP error! status: ${response.status}`);
     }
     
-    return data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
+    const apiRawText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
+    
+    return marked.parse(apiRawText);
 };

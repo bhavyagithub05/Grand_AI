@@ -1,0 +1,160 @@
+/* =========================================
+   AUTHENTICATION STYLES (auth.css)
+   ========================================= */
+
+.auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(18, 18, 18, 0.85); /* Dark semi-transparent background */
+    backdrop-filter: blur(10px); /* Blurs the chatbot behind it */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Keeps it on top of absolutely everything */
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Add this class via JS to hide the login screen */
+.auth-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.auth-card {
+    background: #1e1f22;
+    border: 1px solid #333;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.auth-header {
+    text-align: center;
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.auth-logo span {
+    font-size: 2.5rem;
+    color: #5350C4;
+}
+
+.auth-logo h2 {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+#auth-subtitle {
+    color: #a4a3b6;
+    font-size: 0.95rem;
+}
+
+/* Toggle Buttons */
+.auth-toggle {
+    display: flex;
+    background: #25272a;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.auth-toggle button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #a4a3b6;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.auth-toggle button.active {
+    background: #5350C4;
+    color: #fff;
+}
+
+/* Form Inputs */
+#auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group span {
+    position: absolute;
+    left: 15px;
+    color: #a4a3b6;
+}
+
+.input-group input {
+    width: 100%;
+    background: #25272a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 14px 14px 14px 45px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus {
+    border-color: #5350C4;
+}
+
+.input-group.hidden {
+    display: none;
+}
+
+/* Submit Button & Errors */
+#auth-submit-btn {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 10px;
+}
+
+#auth-submit-btn:hover {
+    background: #e0e0e0;
+}
+
+.auth-error {
+    color: #ff4c4c;
+    font-size: 0.85rem;
+    text-align: center;
+    margin: -5px 0;
+}
+
+.auth-error.hidden {
+    display: none;
+}
+
